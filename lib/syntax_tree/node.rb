@@ -1233,19 +1233,22 @@ module SyntaxTree
 
     private
 
+    # def qwords?
+    #   contents.parts.all? do |part|
+    #     case part
+    #     when StringLiteral
+    #       part.comments.empty? && part.parts.length == 1 &&
+    #         part.parts.first.is_a?(TStringContent) &&
+    #         !part.parts.first.value.match?(/[\s\[\]\\]/)
+    #     when CHAR
+    #       !part.value.match?(/[\[\]\\]/)
+    #     else
+    #       false
+    #     end
+    #   end
+    # end
     def qwords?
-      contents.parts.all? do |part|
-        case part
-        when StringLiteral
-          part.comments.empty? && part.parts.length == 1 &&
-            part.parts.first.is_a?(TStringContent) &&
-            !part.parts.first.value.match?(/[\s\[\]\\]/)
-        when CHAR
-          !part.value.match?(/[\[\]\\]/)
-        else
-          false
-        end
-      end
+      false
     end
 
     def qsymbols?
